@@ -1,12 +1,13 @@
-from employee import Employee
-from db import conn
+from model.employee import Employee
+from database.db import conn
 
 employees = [
-    Employee(name='Tsotne', surname='Sharvadze', age=25),
-    Employee(name='Mariam', surname='Kipshidze', age=24),
-    Employee(name='Tinatin', surname='Tsakadze', age=20),
-    Employee(name='Cillian', surname='Murphy', age=47),
-    Employee(name='Tinatin', surname='Machabeli', age=36)
+    Employee(name="Tsotne", surname="Sharvadze", age=25),
+    Employee(name="Mariam", surname="Kipshidze", age=24),
+    Employee(name="Tinatin", surname="Tsakadze", age=20),
+    Employee(name="Cillian", surname="Murphy", age=47),
+    Employee(name="Tom", surname="Holland", age=24),
+    Employee(name="Tinatin", surname="Machabeli", age=36),
 ]
 
 for employee in employees:
@@ -14,8 +15,7 @@ for employee in employees:
 
 conn.commit()
 
-
-employees_tinatin = Employee.get_list(name='Tinatin')
+employees_tinatin = Employee.get_list(name="Tinatin")
 print(employees_tinatin)
 print(employees_tinatin[0].age > employees_tinatin[1].age)
 
@@ -26,3 +26,5 @@ if employees_age_24:
     conn.commit()
 else:
     print("No employees with age 24 found.")
+
+print(Employee.get_list(name="Mariam", age=24)) #It will print empty list, because it has status "DELETED" in DB
