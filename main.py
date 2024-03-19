@@ -1,17 +1,17 @@
 from employee import Employee
 from db import conn
 
-employee1 = Employee(name='Tsotne', surname='Sharvadze', age=25)
-employee2 = Employee(name='Mariam', surname='Kipshidze', age=24)
-employee3 = Employee(name='Tinatin', surname='Tsakadze', age=20)
-employee4 = Employee(name='Cillian', surname='Murphy', age=47)
-employee5 = Employee(name='Tinatin', surname='Machabeli', age=36)
+employees = [
+    Employee(name='Tsotne', surname='Sharvadze', age=25),
+    Employee(name='Mariam', surname='Kipshidze', age=24),
+    Employee(name='Tinatin', surname='Tsakadze', age=20),
+    Employee(name='Cillian', surname='Murphy', age=47),
+    Employee(name='Tinatin', surname='Machabeli', age=36)
+]
 
-employee1.save()
-employee2.save()
-employee3.save()
-employee4.save()
-employee5.save()
+for employee in employees:
+    employee.save()
+
 conn.commit()
 
 
